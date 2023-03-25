@@ -16,10 +16,10 @@ class Book
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Author = null;
+    private ?string $author = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Title = null;
+    private ?string $title = null;
 
     public function getId(): ?int
     {
@@ -28,24 +28,24 @@ class Book
 
     public function getAuthor(): ?string
     {
-        return $this->Author;
+        return $this->author;
     }
 
-    public function setAuthor(?string $Author): self
+    public function setAuthor(?string $author): self
     {
-        $this->Author = $Author;
+        $this->Author = $author;
 
         return $this;
     }
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(?string $Title): self
+    public function setTitle(?string $title): self
     {
-        $this->Title = $Title;
+        $this->Title = $title;
 
         return $this;
     }

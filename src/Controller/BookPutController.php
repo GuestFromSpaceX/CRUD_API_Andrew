@@ -43,7 +43,7 @@ class BookPutController extends AbstractController
         }
 
         // Добавление объекта Book в EntityManager
-        $this->entityManager->persist($book);
+        // $this->entityManager->persist($book);
 
         // Сохранение изменений в базе данных
         $this->entityManager->flush();
