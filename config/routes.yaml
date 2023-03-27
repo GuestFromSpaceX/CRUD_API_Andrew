@@ -16,13 +16,13 @@ controllers:
     # put instruction
     # curl -X PUT -H "Content-Type: application/json"
     # -d '{"author": "chenged Book author", "title": "chenged Book Title"}'
-    # http://127.0.0.1:45635/updatebook/1
-    # не пиши инвалидный айди, а то он сойдет с ума!!!
+    # http://127.0.0.1:45635/updatebook/{id}
+    # если не упомянуть атрибут, то он станет равным null
 
     # patch instruction
     # curl -X PATCH -H "Content-Type: application/json"
     # -d '{"author": "chenged Book author" !OR(and only)! "title": "chenged Book Title"}'
-    # http://127.0.0.1:45635/patchbook/1
+    # http://127.0.0.1:45635/patchbook/{id}
     # не пиши инвалидный айди, а то он сойдет с ума!!!
 
     # delete instruction

@@ -33,7 +33,7 @@ class Book
 
     public function setAuthor(?string $author): self
     {
-        $this->Author = $author;
+        $this->author = $author;
 
         return $this;
     }
@@ -45,7 +45,7 @@ class Book
 
     public function setTitle(?string $title): self
     {
-        $this->Title = $title;
+        $this->title = $title;
 
         return $this;
     }

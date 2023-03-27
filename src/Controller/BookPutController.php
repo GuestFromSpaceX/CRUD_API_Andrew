@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookPutController extends AbstractController
 {
 
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -33,17 +33,11 @@ class BookPutController extends AbstractController
 
         $data = json_decode($request->getContent(), true);
 
-        if (isset($data['author'])) {
-            $book->setAuthor($data['author']);
-        }
+        $author = isset($data['author']) ? $data['author'] : null;
+        $title = isset($data['title']) ? $data['title'] : null;
 
-        // Если в теле запроса есть параметр 'title', обновляем соответствующее поле в объекте Book
-        if (isset($data['title'])) {
-            $book->setTitle($data['title']);
-        }
-
-        // Добавление объекта Book в EntityManager
-        // $this->entityManager->persist($book);
+        $book->setAuthor($author);
+        $book->setTitle($title);
 
         // Сохранение изменений в базе данных
         $this->entityManager->flush();

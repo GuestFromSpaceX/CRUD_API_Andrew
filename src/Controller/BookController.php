@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookController extends AbstractController
 {
     // Объявляем приватное свойство для хранения экземпляра менеджера сущностей
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     // Определяем конструктор для инициализации свойства менеджера сущностей
     public function __construct(EntityManagerInterface $entityManager)
@@ -31,9 +31,8 @@ class BookController extends AbstractController
         // Получаем данные о книге из репозитория
         $book = $this->entityManager->getRepository(Book::class)->find($id);
 
-        // Если книга не найдена, выбрасываем исключение с сообщением об ошибке
         if (!$book) {
-            throw $this->createNotFoundException('Book not found');
+            throw $this->createNotFoundException('No book found for id ' . $id);
         }
 
         // Формируем массив с данными о книге

@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookDeleteController extends AbstractController
 {
 
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -26,9 +26,8 @@ class BookDeleteController extends AbstractController
         // Поиск книги с заданным id в репозитории
         $book = $this->entityManager->getRepository(Book::class)->find($id);
 
-        // Если книга не найдена, выбрасываем исключение createNotFoundException с сообщением 'Book not found'
         if (!$book) {
-            throw $this->createNotFoundException('Book not found');
+            throw $this->createNotFoundException('No book found for id ' . $id);
         }
 
         // Удаление книги из EntityManager и сохранение изменений в базе данных

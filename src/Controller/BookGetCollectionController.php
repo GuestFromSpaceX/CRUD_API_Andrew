@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BookGetCollectionController extends AbstractController
 {
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
